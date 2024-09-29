@@ -1,0 +1,163 @@
+/* Estilo general */
+html {
+    font-family: 'Roboto', sans-serif;
+    display: inline-block;
+    text-align: center;
+}
+
+body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e8f0fe; /* Color de fondo suave (azul claro) */
+    color: #333;
+}
+
+header h2 {
+    font-size: 2rem;
+    color: #2c3e50; /* Color azul oscuro */
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 1rem;
+    color: #7f8c8d; /* Color gris claro */
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #2c3e50; /* Color azul oscuro */
+    margin-bottom: 15px;
+}
+
+/* Estilo de sensores */
+.sensor-section, .led-section {
+    background-color: #ffffff; /* Blanco */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Estilo de control de LEDs */
+.control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #d0e1f9; /* Color azul claro suave */
+    border-radius: 8px;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+.control:hover {
+    background-color: #b0c4de; /* Color azul claro más oscuro */
+}
+
+label {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Estilo del switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider1, .slider2 {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider1:before, .slider2:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider1 {
+    background-color: #23D4FF;
+}
+
+input:checked + .slider2 {
+    background-color: #58FE7D;
+}
+
+input:checked + .slider1:before {
+    transform: translateX(26px);
+}
+
+input:checked + .slider2:before {
+    transform: translateX(26px);
+}
+
+/* Estilo del deslizador */
+input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 10px;
+    background: rgba(200, 162, 255, 0.6); /* Lavanda con 60% de opacidad */
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+/* Estilo para el thumb del deslizador */
+input[type="range"]::-webkit-slider-thumb {
+    width: 24px; /* Aumentar tamaño del thumb */
+    height: 24px;
+    background: rgba(75, 0, 130, 1); /* Morado oscuro apagado (opaco) */
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid rgba(156, 39, 176, 0.8); /* Añadir un borde delgado que combine */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: background 0.3s ease, transform 0.3s ease; /* Transiciones para efectos */
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 24px; /* Aumentar tamaño del thumb */
+    height: 24px;
+    background: rgba(75, 0, 130, 1); /* Morado oscuro apagado (opaco) */
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid rgba(156, 39, 176, 0.8); /* Añadir un borde delgado que combine */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: background 0.3s ease, transform 0.3s ease; /* Transiciones para efectos */
+}
+
+
+
+/* Efecto al hacer hover */
+input[type="range"]:hover::-webkit-slider-thumb {
+    transform: scale(1.1); /* Aumentar tamaño al pasar el mouse */
+}
+
+input[type="range"]:hover::-moz-range-thumb {
+    transform: scale(1.1); /* Aumentar tamaño al pasar el mouse */
+}
+
+input[type="range"]:hover::-ms-thumb {
+    transform: scale(1.1); /* Aumentar tamaño al pasar el mouse */
+}

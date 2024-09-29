@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>Control de LEDs y Monitoreo de Sensores</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .slider {
+      width: 300px;
+      margin: 20px 0;
+    }
+    .led-status {
+      margin: 20px 0;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Monitoreo de Sensores</h2>
+  <p>Potenciómetro: <span id="potValue">0</span></p>
+  <p>Fotoresistencia: <span id="ldrValue">0</span></p>
+
+  <h2>Control de LEDs</h2>
+  <!-- Controladores de LEDs con deslizadores -->
+  <div>
+    <h3>LED 1</h3>
+    <input type="range" min="0" max="1" value="0" class="slider" id="led1Slider" oninput="toggleLED(1, this.value)">
+    <div class="led-status" id="led1Status">LED 1: OFF</div>
+  </div>
+
+  <div>
+    <h3>LED 2</h3>
+    <input type="range" min="0" max="1" value="0" class="slider" id="led2Slider" oninput="toggleLED(2, this.value)">
+    <div class="led-status" id="led2Status">LED 2: OFF</div>
+  </div>
+
+  <div>
+    <h3>LED 3</h3>
+    <input type="range" min="0" max="1" value="0" class="slider" id="led3Slider" oninput="toggleLED(3, this.value)">
+    <div class="led-status" id="led3Status">LED 3: OFF</div>
+  </div>
+
+  <h2>Ajuste de Brillo</h2>
+  <p>LED 4: <input type="range" min="0" max="255" id="led4Slider" oninput="setPWM(4, this.value)"></p>
+  <p>LED 5: <input type="range" min="0" max="255" id="led5Slider" oninput="setPWM(5, this.value)"></p>
+
+  <script>
+    // Actualización de valores de sensores
+    setInterval(function() {
+      fetch('/sensor')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('potValue').innerText = data.pot;
+        document.getElementById('ldrValue').innerText = data.ldr;
+      });
+    }, 1000);
+
+    // Función para encender/apagar LEDs
+    function toggleLED(led, value) {
+      let state = value == 1 ? "on" : "off";
+      document.getElementById('led' + led + 'Status').innerText = 'LED ' + led + ': ' + (state == "on" ? 'ON' : 'OFF');
+      
+      fetch('/led', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'led=' + led + '&state=' + state
+      });
+    }
+
+    // Función para ajustar PWM
+    function setPWM(led, value) {
+      fetch('/pwm', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'led=' + led + '&value=' + value
+      });
+    }
+  </script>
+</body>
+</html>
+
