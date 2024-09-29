@@ -1,0 +1,32 @@
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;  /* Fuente Arial y fuente alternativa */
+    text-align: center; /* Centramos texto */
+    margin: 0; /* Eliminamos margen y relleno */
+    padding: 0;
+    transition: background-color 0.5s ease; /* Transición suave para el cambio de color */
+}
+
+h2 {
+    color: #333; /* Color gris oscuro para encabezado h2 */
+}
+
+p {
+    color: #666; /* Color gris claro para textos de parrafo */
+}
+
+button {
+    padding: 10px 20px; /* Relleno interno de 10p vertical y 20p horizontal */
+    font-size: 1rem; /* Tamaño fuente en 1 rem */
+    color: white; /* Color de texto del boton: blanco */
+    background-color: #007BFF; /* Color del fondo del botón azul */
+    border: none; /* Sin bordes predeterminados */
+    border-radius: 5px; /* Bordes redondeados del boton de 5p */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar por el boton */
+    transition: background-color 0.3s ease; /* Transicion suave de 0.3s para el cambio de color del fondo */
+}
+
+button:hover {
+    background-color: #0056b3;  /* Cambia el color de fondo del botón cuando el cursor pasa sobre él */
+}
