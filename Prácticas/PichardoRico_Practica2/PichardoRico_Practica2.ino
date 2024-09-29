@@ -42,11 +42,8 @@ const char* PARAM_INPUT2 = "value5";
 AsyncWebServer server(80);
 
 //Credenciales Red-----------------------------
-//const char* ssid = "Clase_IoT";
-//const char* password = "0123456789";
-
-const char* ssid = "Totalplay-B6AA";
-const char* password = "B6AA8A65m6RwkHvj";
+const char* ssid = "Nombre de la RED wifi";
+const char* password = "Contraseña de la RED";
 
 // Conexión WiFi
 void setup_wifi() {
