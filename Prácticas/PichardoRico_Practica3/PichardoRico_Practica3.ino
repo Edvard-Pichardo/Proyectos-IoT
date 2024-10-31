@@ -21,12 +21,10 @@
 const int leds[5] = {led1, led2, led3, led4, led5};
 
 //Variables de configuración del objeto MQTT cliente
-//const char* ssid = "Clase_IoT";
-//const char* password = "0123456789";
-const char* ssid = "Totalplay-B6AA";
-const char* password = "B6AA8A65m6RwkHvj";
+const char* ssid = "Nombre_RED";
+const char* password = "Contraseña";
 const char* broker = "test.mosquitto.org";  // Dirección del broker
-const char* nameClient = "ESP32_Pichardo";    // Nombre del dispositivo
+const char* nameClient = "Nombre_cliente";    // Nombre del dispositivo
 const int port = 1883;                       // Puerto
 
 //Tópicos
